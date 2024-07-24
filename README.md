@@ -7,7 +7,7 @@ Transform your video editing workflow with our powerful extension! Seamlessly sh
 # 🚀 How to Install
 
 1. **Install the Extension:**
-   - Download and install `Shuffle.Clips.zxp`.
+   - Download and install `Shuffle.Clips.zxp` from release section.
 
 2. **Manual Installation:**
    - If you encounter any issues, rename `Shuffle.Clips.zxp` to `Shuffle.Clips.zip` then extract and copy the contents to:
