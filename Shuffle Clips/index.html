@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Test Script With Interface</title>
+    <script src="./lib/CSInterface.js"></script>
+
+    <script type="text/javascript">
+        function shuffleClips() {
+            var cs = new CSInterface();
+            var trackNumber = document.getElementById('videoTrackNumber').value;
+            cs.evalScript('shuffleClips(' + trackNumber + ')');
+        }
+
+        function deleteClipsBelowThreshold() {
+            var cs = new CSInterface();
+            var belowValue = document.getElementById('belowValue').value;
+            var trackNumber = document.getElementById('videoTrackNumber').value;
+            cs.evalScript('deleteClipsBelowTreshold(' + belowValue + ',' + trackNumber + ')');
+        }
+
+        function deleteClipsAboveThreshold() {
+            var cs = new CSInterface();
+            var aboveValue = document.getElementById('aboveValue').value;
+            var trackNumber = document.getElementById('videoTrackNumber').value;
+            cs.evalScript('deleteClipsAboveTreshold(' + aboveValue + ',' + trackNumber + ')');
+        }
+
+        function toggleDeleteButtons() {
+            var checkbox = document.getElementById('deleteSectionCheckbox');
+            var belowValue = document.getElementById('belowValue');
+            var aboveValue = document.getElementById('aboveValue');
+            var belowButton = document.getElementById('deleteBelowButton');
+            var aboveButton = document.getElementById('deleteAboveButton');
+            var belowLabel = document.getElementById('belowLabel');
+            var aboveLabel = document.getElementById('aboveLabel');
+
+            if (checkbox.checked) {
+                belowButton.disabled = false;
+                aboveButton.disabled = false;
+                belowValue.disabled = false;
+                aboveValue.disabled = false;
+                belowLabel.style.color = '#ddd';
+                aboveLabel.style.color = '#ddd';
+                belowButton.classList.remove('disabled');
+                aboveButton.classList.remove('disabled');
+                belowButton.style.color = '#ddd';
+                aboveButton.style.color = '#ddd';
+            } else {
+                belowButton.disabled = true;
+                aboveButton.disabled = true;
+                belowValue.disabled = true;
+                aboveValue.disabled = true;
+                belowLabel.style.color = '#888';
+                aboveLabel.style.color = '#888';
+                belowButton.classList.add('disabled');
+                aboveButton.classList.add('disabled');
+                belowButton.style.color = '#888';
+                aboveButton.style.color = '#888';
+            }
+        }
+
+        window.onload = function() {
+            toggleDeleteButtons();
+        }
+    </script>
+    <style>
+        body {
+            background-color: #333;
+            color: #ddd;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        button {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #ddd;
+            background-color: #555;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover:not(.disabled) {
+            background-color: #777;
+        }
+        button:active:not(.disabled) {
+            animation: flash 0.2s;
+        }
+        @keyframes flash {
+            0% { background-color: #fff; }
+            100% { background-color: #777; }
+        }
+        button:disabled {
+            cursor: not-allowed;
+        }
+        .disabled {
+            background-color: #444 !important;
+            color: #888 !important;
+        }
+        input:disabled {
+            background-color: #555;
+        }
+        input {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #ddd;
+            background-color: #444;
+            border: none;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        label {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        .space {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <label for="videoTrackNumber">Video Track Number 
+        <input type="number" id="videoTrackNumber" min="1" value="1">
+    </label>
+    
+    <button id="shuffleButton" type="button" onclick="shuffleClips()">Shuffle</button>
+
+    <br><br>
+    
+    <input type="checkbox" id="deleteSectionCheckbox" onclick="toggleDeleteButtons()">
+    <label for="deleteSectionCheckbox">Delete Section</label>
+
+    <br><br>
+
+    <label id="belowLabel" for="belowValue">Delete All Clips Below 
+        <input type="number" id="belowValue" step="0.01" min="0.01" disabled> Seconds
+    </label>
+    <button id="deleteBelowButton" type="button" class="space disabled" disabled onclick="deleteClipsBelowThreshold()">Delete</button>
+
+    <br><br>
+
+    <label id="aboveLabel" for="aboveValue">Delete All Clips Above 
+        <input type="number" id="aboveValue" step="0.01" min="0.01" disabled> Seconds
+    </label>
+    <button id="deleteAboveButton" type="button" class="space disabled" disabled onclick="deleteClipsAboveThreshold()">Delete</button>
+</body>
+</html>
