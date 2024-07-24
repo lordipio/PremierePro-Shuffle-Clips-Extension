@@ -1,4 +1,4 @@
-# 🌟 About This Extension (Avoid Copyright)
+# 🌟 About This Extension (Easily Avoid Copyright)
 
 Transform your video editing workflow with my extension! Seamlessly shuffle your clips to avoid copyright issues, allowing you to utilize trailers and footage without the hassle. Additionally, set thresholds to automatically delete clips that are too short or too long, giving you full control over your content. Elevate your editing experience and stay compliant with ease!
 
