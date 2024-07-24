@@ -7,10 +7,10 @@ Transform your video editing workflow with our powerful extension! Seamlessly sh
 # 🚀 How to Install
 
 1. **Install the Extension:**
-   - Download and install `Shuffle.zxp`.
+   - Download and install `Shuffle.Clips.zxp`.
 
 2. **Manual Installation:**
-   - If you encounter any issues, extract `Shuffle.zxp` and copy the contents to:
+   - If you encounter any issues, rename `Shuffle.Clips.zxp` to `Shuffle.Clips.zip` then extract and copy the contents to:
      `C:\Program Files (x86)\Common Files\Adobe\CEP\extensions`.
 
 3. **Enable Debug Mode:**
